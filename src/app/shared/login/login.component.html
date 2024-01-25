@@ -1,0 +1,69 @@
+
+<div class="container">
+    <div class="container-left">
+        <div class="container-left-details">
+            <img class="container-left-details-logo" src="../../../assets/logo/fintrust-logo.svg" alt="FinTrust-logo">
+            <h4 class="container-left-details-header-text">Welcome back</h4>
+            <p class="container-left-details-text">Please enter your details to sign in.</p>
+            <div class="container-left-details-buttons">
+                <button class="btns"><img class="img" src="../../../assets/logo/bi_apple.svg" alt="apple"></button>
+                <button class="btns"><img class="img" src="../../../assets/logo/google-icon.svg" alt="google"></button>
+                <button class="btns"><img class="img" src="../../../assets/logo/twitter-icon.svg" alt="twitter"></button>
+            </div>
+            <div class="lines">
+                    <img src="../../../assets/logo/or-line.svg" alt="or">
+            </div>
+        </div>
+
+        <form [formGroup]="loginForm"  class="container-left-form" >
+            <input class="container-left-form-email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" placeholder="Enter your email...">
+
+            <div class="validations"  *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="email.errors.email">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+            <div class="container-left-form-password-block">
+                <input class="container-left-form-pass" formControlName="password" [type]="show_type ? 'text' : 'password'" name="password" placeholder="• • • • • • • •">
+                    <i (click)="showPassword()" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'"  class="container-left-form-password-block-eye_icon"></i>
+                </div>
+                    <div class="validations" *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.errors.required">
+                          Password is required.
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                          Password must be at least 8 characters long.
+                        </div>
+                      </div>
+            <div class="helpers">
+                <div class="helpers-remember">
+                    <input type="checkbox"   class="helpers-remember-checkbox">
+                    <span class="helpers-remember-text">Remember me</span>
+                </div>
+                <a class="helpers-remember-link" routerLink="/forgot-password" >Forgot password?</a>
+            </div>
+            <button type="submit" (click)="onSubmit()"  class="container-left-form-btn">Sign in</button>
+            <p class="container-left-details-text">Don't have aan account yet?<a class="container-left-form-link" routerLink="/sign-up" > Sign Up</a></p>
+        </form>
+        
+    </div>
+    <div class="container-text">    
+        <div class="container-text-diagrams">
+            <div class="container-text-diagrams-total">
+                <img src="../../../assets/img/Total revenue.svg" alt="total revenue">
+            </div>
+            <div class="container-text-diagrams-balance">
+                <img src="../../../assets/img/Balance overview.svg" alt="balance overview">                
+            </div>
+            <div class="container-text-bottom">
+                <h3 class="">Welcome to our</h3>
+                <h3 class="container-text-bottom-name">FinTrust</h3>
+
+            </div>
+        </div>
+    </div>
+</div>
