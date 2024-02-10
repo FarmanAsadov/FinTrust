@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,6 +14,7 @@ export class LoginComponent {
  show_type: boolean = false;
  show_eye: boolean = false;
  loginForm: FormGroup;
+
 
  constructor(private fb: FormBuilder) {
   this.loginForm = this.fb.group({

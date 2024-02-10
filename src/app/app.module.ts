@@ -9,8 +9,6 @@ import { ForgotPasswordComponent } from './shared/forgot-password/forgot-passwor
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
