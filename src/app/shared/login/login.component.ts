@@ -1,4 +1,3 @@
-import { AuthService } from './../../service/auth.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -16,10 +15,10 @@ export class LoginComponent {
  loginForm: FormGroup;
 
 
- constructor(private fb: FormBuilder) {
+constructor(private fb: FormBuilder) {
   this.loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required,Validators.minLength(8)]]
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', [Validators.required,Validators.minLength(8)]]
   });
 }
 get email(): AbstractControl | any{
@@ -33,8 +32,9 @@ get password(): AbstractControl | any{
 showPassword() {
    this.show_type = !this.show_type;
    this.show_eye = !this.show_eye;
- }
- onSubmit() {
+}
+
+onSubmit() {
   if (this.loginForm.valid) {
     const emailValue = this.loginForm.get('email')?.value;
     const passwordValue = this.loginForm.get('password')?.value;
@@ -44,7 +44,5 @@ showPassword() {
     console.log('Form is invalid');
   }
 
-  console.log("asdasasas");
-  
 }
 }
